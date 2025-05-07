@@ -36,9 +36,9 @@ WORKDIR /var/www/html/api
 
 # Install Composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-#RUN composer update
-#RUN composer install
-#RUN composer fund
+RUN composer update
+RUN composer install
+RUN composer fund
 
 # Set working directory
 WORKDIR /var/www/html
