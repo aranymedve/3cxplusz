@@ -1,0 +1,12 @@
+{
+	"require": {
+    	"google/apiclient": "*",
+    	"google/auth": "*",
+    	"google/cloud-core": "*",
+    	"google/cloud-storage": "*",
+    	"google/cloud-speech": "*",
+    	"ext-bcmath": "*",
+    	"google/cloud": "*",
+    	"darkaonline/ripcord": "*"
+	}
+}

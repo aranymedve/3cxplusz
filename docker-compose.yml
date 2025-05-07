@@ -1,0 +1,29 @@
+# Docker Compose file for a PHP web server with Apache and a MariaDB database
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    container_name: debian:bullseye-slim
+    restart: always
+    volumes:
+      - ./html:/var/www/html
+    ports:
+      - "8080:80"
+
+  db:
+    image: mariadb:latest
+    container_name: mariadb_server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: Rakoczi2012
+      MYSQL_DATABASE: 3cxplusz
+      MYSQL_USER: 3cxuser
+      MYSQL_PASSWORD: Rakoczi2012
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+volumes:
+  db_data:
