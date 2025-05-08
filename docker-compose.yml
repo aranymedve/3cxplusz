@@ -1,16 +1,17 @@
 # Docker Compose file for a PHP web server with Apache and a MariaDB database
 services:
   web:
+    tty: true
     build:
       context: .
       dockerfile: Dockerfile 
-    container_name: debian
+    container_name: webserver
     restart: always
     volumes:
       - ./html:/var/www/html
     ports:
       - "8080:80"
-    command: ["tail", "-f", "/dev/null"]
+
 
 
   db:
@@ -26,6 +27,21 @@ services:
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    links:
+      - db
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+      PMA_USER: 3cxuser
+      PMA_PASSWORD: Rakoczi2012
+    restart: always
+    ports:
+      - "8081:80"
 
 volumes:
   db_data:

@@ -42,3 +42,4 @@ RUN composer fund
 
 # Set working directory
 WORKDIR /var/www/html
+ENTRYPOINT ["/bin/bash"]
