@@ -4,12 +4,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile 
-    container_name: debian:bullseye-slim
+    container_name: debian
     restart: always
     volumes:
       - ./html:/var/www/html
     ports:
       - "8080:80"
+    command: ["tail", "-f", "/dev/null"]
+
 
   db:
     image: mariadb:latest

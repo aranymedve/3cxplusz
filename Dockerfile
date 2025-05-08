@@ -1,15 +1,15 @@
-FROM debian:bullseye-slim
+FROM amd64/debian:bookworm-slim
 
 # Install necessary packages
 RUN apt-get update && apt-get install -y \
     unzip \
+    apache2 \
     curl \
     git \
     composer \
     mc \
     php-curl \
     php-bcmath \
-    phpmyadmin \
     net-tools \
     sshfs \
     openssh-server \
